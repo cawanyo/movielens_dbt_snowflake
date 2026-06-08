@@ -1,0 +1,39 @@
+name: dbt CI
+
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    env:
+      SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
+      SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
+
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dbt
+        run: |
+          pip install dbt-snowflake
+
+      - name: Install dependencies
+        run: dbt deps
+
+      - name: Parse Project
+        run: dbt parse
+
+      - name: Compile Models
+        run: dbt compile

@@ -1,0 +1,15 @@
+netflix:
+  outputs:
+    dev:
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      database: NETFLIX
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: ACCOUNTADMIN
+      schema: dbd_schema
+      threads: 1
+      type: snowflake
+      user: chris
+      warehouse: COMPUTE_WH
+  target: dev
+
+

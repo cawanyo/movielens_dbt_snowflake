@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: staging
+    database: netflix
+    schema: staging
+    tables:
+      - name: movies
+        identifier: movies
+      - name: tags
+        identifier: tags
+      - name: genome_scores
+        identifier: genome_scores
+      
+      - name: ratings
+        identifier: ratings
+      
+      - name: genome_tags
+        identifier: genome_tags
+        
+      - name: links
+        identifier: links

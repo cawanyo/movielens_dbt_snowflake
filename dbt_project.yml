@@ -37,3 +37,5 @@ models:
       +materialized: table
     fct:
       +materialized: table
+    exemple:
+      +materialized: view

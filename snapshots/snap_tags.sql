@@ -11,7 +11,7 @@
 }}
 
 SELECT 
-    MD5(CONCAT(CAST(user_id AS STRING), '-', CAST(movie_id AS STRING), '-', CAST(tags AS STRING))) as raw_key,
+    MD5(CONCAT(CAST(user_id AS STRING), '-', CAST(movie_id AS STRING), '-', CAST(tag AS STRING))) as raw_key,
     user_id,
     movie_id,
     tags as tag,

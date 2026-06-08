@@ -14,7 +14,7 @@ SELECT
     MD5(CONCAT(CAST(user_id AS STRING), '-', CAST(movie_id AS STRING), '-', CAST(tag AS STRING))) as raw_key,
     user_id,
     movie_id,
-    tags as tag,
+    tag as tag,
     CAST(tag_timestamp AS TIMESTAMP_NTZ) AS tag_timestamp
 
 FROM {{ ref('src_tags') }}
